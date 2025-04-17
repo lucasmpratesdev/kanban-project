@@ -1,0 +1,8 @@
+# dependências
+node_modules/
+
+# env
+.env
+
+# build (caso compile com tsc)
+dist/
