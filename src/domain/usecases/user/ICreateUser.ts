@@ -4,14 +4,16 @@ export interface ICreateUser {
 
 export namespace ICreateUser {
     export type Params = {
-        nome: string
-        email: string 
+        name: string
+        email: string
+        password: string 
     }
     
     export type Result = {
-        id: number
-        nome: string
-        email: string 
-        createAt: Date
-    } | undefined
+        id: string
+        name: string
+        email: string
+        createdAt: Date
+        updatedAt: Date
+    }
 }

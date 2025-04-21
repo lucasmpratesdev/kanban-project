@@ -4,14 +4,16 @@ export interface ICreateUserRepository {
 
 export namespace ICreateUserRepository {
     export type Params = {
-        nome: string
-        email: string 
+        name: string
+        email: string
+        password: string 
     }
     
     export type Result = {
-        id: number
-        nome: string
+        id: string
+        name: string
         email: string
-        createAt: Date
+        createdAt: Date
+        updatedAt: Date
     }
 }
