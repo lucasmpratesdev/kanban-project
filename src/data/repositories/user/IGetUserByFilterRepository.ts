@@ -13,5 +13,7 @@ export namespace IGetUserByFilterRepository {
         name: string
         email: string
         password: string
-    } | undefined
+        createdAt: Date
+        updatedAt: Date
+    } | null
 }

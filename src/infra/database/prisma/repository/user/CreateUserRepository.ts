@@ -1,5 +1,5 @@
-import { repository } from "../client"
-import { ICreateUserRepository } from "../../../../data/repositories/user/ICreateUserRepository"
+import { repository } from "../../client"
+import { ICreateUserRepository } from "../../../../../data/repositories/user/ICreateUserRepository"
 
 export class CreateUserRepository implements ICreateUserRepository {
     async create(data: ICreateUserRepository.Params): Promise<ICreateUserRepository.Result> {
