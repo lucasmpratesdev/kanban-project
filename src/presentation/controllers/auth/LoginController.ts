@@ -1,7 +1,10 @@
 import { Controller, HttpResponse, Validation } from '../../protocols'
-import { badRequest, ok, serverError } from '../../helpers/httpHelpers'
+import { badRequest, ok, serverError, unauthorized } from '../../helpers/httpHelpers'
 import { ILoginAuth } from '../../../domain/usecases/auth/ILoginAuth'
 
+const isLoginError = (res: ILoginAuth.Result): res is { success: false; error: string } => {
+    return !res.success
+}
 export class LoginController implements Controller {
     constructor (
         private readonly validation: Validation,
@@ -19,6 +22,10 @@ export class LoginController implements Controller {
             const { email, password } = request.body
 
             const result = await this.loginAuth.login({ email, password })
+
+            if (isLoginError(result)) {
+                return unauthorized(new Error(result.error))
+            }
 
             return ok(result)
             

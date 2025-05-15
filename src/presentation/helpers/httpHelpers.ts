@@ -14,3 +14,8 @@ export const serverError = (error: Error): HttpResponse => ({
     statusCode: 500,
     body: { error: error.message }
 })
+
+export const unauthorized = (error: Error | string): HttpResponse => ({
+    statusCode: 401,
+    body: { error: typeof error === 'string' ? error : error.message }
+})

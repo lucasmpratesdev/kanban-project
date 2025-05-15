@@ -1,3 +1,4 @@
+
 export interface ILoginAuth {
     login: (data: ILoginAuth.Params) => Promise<ILoginAuth.Result>
 }
@@ -9,12 +10,12 @@ export namespace ILoginAuth {
     }
 
     export type Result = {
+        success: boolean
         token: string
         user: {
             id: string
             name: string
             email: string
-            // password: string
         } 
-    } | undefined
+    } | { success: boolean, error: string } // | undefined
 }

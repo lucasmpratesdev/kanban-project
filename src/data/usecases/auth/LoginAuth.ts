@@ -13,16 +13,17 @@ export class LoginAuth implements ILoginAuth {
 
         const user = await this.getUserByFilterRepository.get({ email })
         if (!user) {
-            throw new Error("Usuário não encontrado.")
+            return { success: false, error: 'Usuário não encontrado.' }
         }
 
         const isValidPassword = await bcrypt.compare(password, user.password)
         if (!isValidPassword) {
-            throw new Error("Senha incorreta.")
+            return { success: false, error: 'Senha incorreta' }
         }
         
         const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET!, { expiresIn: '1h' })
         return {
+            success: true,
             token,
             user: {
                 id: user.id,
