@@ -14,7 +14,7 @@ export class CreateUser implements ICreateUser {
 
         const userByEmail = await this.getUserByFilterRepository.get({ email: data.email })
         if (userByEmail) {
-            throw new Error("E-mail já está em uso")
+            throw new Error('E-mail já está em uso')
         }
         const hashedPassword = await bcrypt.hash(data.password, 10)
         const newUser = await this.createUserRepository.create({
