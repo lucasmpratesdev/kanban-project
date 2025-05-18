@@ -1,5 +1,3 @@
-// ✅ Correto
-
 export interface IUserCrudRepository {
   create(data: IUserCrudRepository.Params): Promise<IUserCrudRepository.Result>
   getAll(): Promise<IUserCrudRepository.Result[]>

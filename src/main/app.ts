@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import { Router } from 'express'
 import loginRoutes from '../main/routes/login/LoginAuthRoutes'
 import userRouter  from '../main/routes/user/userRoutes'
+import BoardRoutes  from '../main/routes/board/BoardRoutes'
+
 
 dotenv.config()
 
@@ -19,6 +21,8 @@ app.get('/', (req, res) => {
 
 loginRoutes(router)
 userRouter(router)
+BoardRoutes(router)
+
 
 app.use(router)
 
