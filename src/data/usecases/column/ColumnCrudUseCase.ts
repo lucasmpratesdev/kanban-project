@@ -7,8 +7,6 @@ export class ColumnCrudUseCase implements IColumnCrudUseCase {
     constructor(
         private readonly columnCrudRepository: IColumnCrudRepository,
         private readonly boardCrudRepository: IBoardCrudRepository
-        
-
     ) {}
 
     async create(data: IColumnCrudUseCase.CreateParams): Promise<IColumnCrudUseCase.Result> {
