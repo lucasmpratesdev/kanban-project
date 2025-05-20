@@ -1,11 +1,8 @@
 import { IBoardCrudUseCase } from '../../../domain/usecases/board/IBoardCrud'
-import { IGetUserByFilterRepository } from  "../../repositories/user/IGetUserByFilterRepository"
 import { IBoardCrudRepository } from "../../repositories/board/IBoardCrudRepository"
-import bcrypt from 'bcrypt'
 
 export class BoardCrudUseCase implements IBoardCrudUseCase {
-    constructor(private readonly boardCrudRepository: IBoardCrudRepository,
-                // private readonly getUserByFilterRepository: IGetUserByFilterRepository
+    constructor(private readonly boardCrudRepository: IBoardCrudRepository
     ) {}
 
     async create(data: IBoardCrudUseCase.CreateParams): Promise<IBoardCrudUseCase.Result> {
